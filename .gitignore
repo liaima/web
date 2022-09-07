@@ -1,4 +1,8 @@
 data/
 backend/config/__pycache__/
+backend/web/__pycache__/
+backend/web/migrations/__pycache__/
+backend/portfolio/__pycache__/
+backend/portfolio/migrations/__pycache__/
 .env
 media/
