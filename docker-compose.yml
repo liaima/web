@@ -18,6 +18,6 @@ services:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_DB: ${DB_NAME}
     volumes:
-      - ./data/postgres:/var/lib/postgres/data:delegated
+      - ./postgresdata:/var/lib/postgres/data:delegated
     ports:
       - ${DB_EXPOSE_PORT}:5432
