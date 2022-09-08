@@ -1,4 +1,4 @@
-data/
+postgresdata/
 backend/config/__pycache__/
 backend/web/__pycache__/
 backend/web/migrations/__pycache__/
