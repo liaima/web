@@ -31,13 +31,14 @@ if ( os.environ['PRODUCTION'] ) :
         f"https://{os.environ['ALLOWED_HOST']}"
     ]
 
+    CORS_ORIGIN_WHITELIST = [
+        f"https://{os.environ['ALLOWED_HOST']}"
+    ]
+
 ALLOWED_HOSTS = [
     os.environ['ALLOWED_HOST']
 ]
 
-#CORS_ORIGIN_WHITELIST = [
-#    "http://${os.environ['ALLOWED_HOST']}"
-#]
 
 
 # Application definition
