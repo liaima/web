@@ -1,3 +1,3 @@
 #!/bin/bash
-
-docker compose exec --user 1000:1000 backend python manage.py $@
+echo "${UID}:${GID}" 
+docker compose exec --user $UID:$GID backend python manage.py $@
