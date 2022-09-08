@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker compose exec --user $UID backend python manage.py $@
+docker compose exec --user $UID backend . ./venv/bin/activate && python manage.py $@
