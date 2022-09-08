@@ -26,9 +26,9 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False if os.environ['PRODUCTION'] else True
 
-if (os.environ['PRODUCTION']) :
+if ( os.environ['PRODUCTION'] ) :
     CSRF_TRUSTED_ORIGINS = [
-        "https://${os.environ['ALLOWED_HOST']}",
+        f"https://{os.environ['ALLOWED_HOST']}"
     ]
 
 ALLOWED_HOSTS = [
