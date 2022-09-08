@@ -24,9 +24,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ['PRODUCTION']
+DEBUG = False if os.environ['PRODUCTION'] else True
 
-ALLOWED_HOSTS = [os.environ['ALLOWED_HOST']]
+if (os.environ['PRODUCTION']) :
+    CSRF_TRUSTED_ORIGINS = [
+        "https://${os.environ['ALLOWED_HOST']}",
+    ]
+
+ALLOWED_HOSTS = [
+    os.environ['ALLOWED_HOST']
+]
+
+#CORS_ORIGIN_WHITELIST = [
+#    "http://${os.environ['ALLOWED_HOST']}"
+#]
 
 
 # Application definition
