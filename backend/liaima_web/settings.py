@@ -38,15 +38,6 @@ ALLOWED_HOSTS = [
     os.environ['ALLOWED_HOST']
 ]
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-8jz2(*7qg7!yurrlv!!6#f4m&wv(sr-4n6=o5l2n_5^3&ad_v1'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
-
 # Application definition
 
 INSTALLED_APPS = [
