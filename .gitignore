@@ -2,3 +2,4 @@ postgresdata/
 __pycache__/
 .env
 media/
+backend/venv/
