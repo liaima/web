@@ -1,4 +1,4 @@
-"""config URL Configuration
+"""liaima_web URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -18,7 +18,7 @@ from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings
 
-from portfolio import views
+from porfolio import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
