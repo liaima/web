@@ -1,9 +1,13 @@
 body {
-  background: #035B70;
+  background: #216778;
 }
 
-.bg-black {
-  background: #000;
+.bg-liaima-gray {
+  background: #333333;
+}
+
+.bg-black-tranparency {
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .card-project:hover {
