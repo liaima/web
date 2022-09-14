@@ -10,7 +10,10 @@ body {
   background: rgba(0, 0, 0, 0.5);
 }
 
+.card-project {
+  transition: transform .5s;
+}
+
 .card-project:hover {
-  border: 1px solid #eee;
-  cursor: pointer;
+  transform: scale(1.1);
 }
