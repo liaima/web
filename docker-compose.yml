@@ -9,8 +9,6 @@ services:
       PGDATA: /var/lib/postgresql/data
     volumes:
       - ./postgresdata:/var/lib/postgresql/data
-    ports:
-      - ${DB_EXPOSE_PORT}:5432
 
   backend:
     build:
