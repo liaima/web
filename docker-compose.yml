@@ -1,16 +1,5 @@
 version : '3.7'
 services:
-  backend:
-    build:
-      context: .
-      target: 'develop-stage'
-    ports:
-      - ${BACKEND_EXPOSE_PORT}:8000
-    env_file: .env
-    volumes:
-      - ./backend:/app:delegated
-    command: /bin/sh -c ". ./venv/bin/activate && pip install -r requirements.txt && python manage.py runserver 0.0.0.0:8000"
-
   db:
     image: postgres:14-alpine
     environment:
@@ -22,3 +11,17 @@ services:
       - ./postgresdata:/var/lib/postgresql/data
     ports:
       - ${DB_EXPOSE_PORT}:5432
+
+  backend:
+    build:
+      context: .
+      target: 'develop-stage'
+    ports:
+      - ${BACKEND_EXPOSE_PORT}:8000
+    depends_on:
+      - db
+    env_file: .env
+    volumes:
+      - ./backend:/app:delegated
+    command: /bin/sh -c ". ./venv/bin/activate && pip install -r requirements.txt && python manage.py runserver 0.0.0.0:8000"
+
