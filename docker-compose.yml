@@ -23,3 +23,13 @@ services:
       - ./backend:/app:delegated
     command: /bin/sh -c "pip install -r requirements.txt && python manage.py runserver 0.0.0.0:8000"
 
+  nginx:
+    image: nginx:1.15
+    restart: on-failure
+    ports:
+      - ${FRONTEND_EXPOSE_PORT}:8000
+    volumes:
+      - ./config/nginx:/etc/nginx/conf.d
+      - ./backend/static:/static
+      - ./backend/media:/media
+

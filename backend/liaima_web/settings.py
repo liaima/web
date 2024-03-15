@@ -34,9 +34,7 @@ CORS_ORIGIN_WHITELIST = [
     os.environ['CORS_ORIGIN_WHITELIST'],
 ]
 
-ALLOWED_HOSTS = [
-    os.environ['ALLOWED_HOST'],
-]
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOST').split(',')
 
 # Application definition
 
