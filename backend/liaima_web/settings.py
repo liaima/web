@@ -34,9 +34,7 @@ CORS_ORIGIN_WHITELIST = [
     os.environ['CORS_ORIGIN_WHITELIST'],
 ]
 
-ALLOWED_HOSTS = [
-    os.environ['ALLOWED_HOST'],
-]
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOST').split(',')
 
 # Application definition
 
@@ -130,6 +128,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATIC_ROOT = BASE_DIR / 'static'
 
 MEDIA_ROOT = BASE_DIR / 'media'
 
