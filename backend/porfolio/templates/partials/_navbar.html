@@ -23,10 +23,55 @@
             GitLab
           </a>
         </li>
-        <li class="nav-item d-flex align-items-center px-2">
-          <a class="btn btn-warning btn-md rounded-0" href="https://raw.githubusercontent.com/liaima/liaima/main/CV_ES.pdf" target="_blank"><i class="bi bi-file-earmark-arrow-down"></i> Download CV</a>
+        <li class="nav-item dropdown d-flex align-items-center px-2">
+          <a class="btn btn-warning btn-md rounded-0 nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="bi bi-file-earmark-arrow-down"></i> Download CV</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" id="btn-cv-en" href="#">English Version</a></li>
+            <li><a class="dropdown-item" id="btn-cv-es" href="#">Spanish Version</a></li>
+          </ul>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+
+<div class="modal fade" id="cvModal" tabindex="-1" aria-labelledby="cvModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 text-secondary" id="cvModalLabel">My Rersume</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div id="cvModalBody" class="modal-body">
+        <embed id="resumePdf" src="" width="100%" height="300"></embed>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const cvModal = new bootstrap.Modal('#cvModal'); 
+  function loadResume(version = 'EN'){
+    let src = ""
+    if(version == 'EN'){
+      src = "{% static 'docs/CV_EN.pdf' %}";
+    } else if(version == 'ES'){
+      src = "{% static 'docs/CV_ES.pdf' %}";
+    }
+    cvModal.toggle();
+    const embed = document.getElementById('resumePdf');
+    embed.src = src;
+    embed.height = 70 * window.innerHeight / 100 ;
+  }
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById('btn-cv-en').addEventListener('click', () => {
+      loadResume('EN')
+    })
+    document.getElementById('btn-cv-es').addEventListener('click', () => {
+      loadResume('ES')
+    })
+  })
+</script>
