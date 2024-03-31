@@ -1,0 +1,21 @@
+<div class="row my-4 text-center">
+
+  <h3>Skills</h3>
+
+  <div class="row row-cols-1 row-cols-lg-3 g-4">
+  {% for skill in skills %}
+  <div class="col">
+    <div class="card h-100 bg-liaima-gray card-skill">
+    
+          <div class="card-body">
+    
+            <h2>{{ skill.name }}</h2>
+            <p>{{ skill.value }}</p>
+    
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+</div>
+

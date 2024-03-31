@@ -18,32 +18,9 @@
     </p>
   </div>
 </header>
-<div class="row my-4 text-center">
 
-  <h3>My Projects</h3>
-
-  <div class="row row-cols-1 row-cols-lg-3 g-4">
-  {% for project in projects %}
-  <div class="col">
-    <div class="card h-100 bg-liaima-gray card-project">
-          <img src="{{project.image.url }}" class="card-img-top" />
-    
-          <div class="card-body">
-    
-            <h2>{{ project.title }}</h2>
-            <p>{{ project.description }}</p>
-    
-            {% if project.url %}
-               <a href="{{project.url}}" class="btn btn-light rounded-0" target="__blank">
-                 <i class="bi bi-git"></i> Repository
-               </a>
-            {% endif %}
-        </div>
-      </div>
-    </div>
-  {% endfor %}
-  </div>
-</div>
+{% include 'partials/_projects.html' %}
+{% include 'partials/_skills.html' %}
 
 {% endblock %}
 
