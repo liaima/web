@@ -9,6 +9,23 @@ class Project(models.Model):
     url = URLField(blank=True)
     position = IntegerField(default = 0)
 
-class Skills(models.Model):
+    class Meta:
+        db_table = "Projects"
+        verbose_name = "Project"
+        verbose_name_plural = "Projects"
+
+    def __str__(self) -> str:
+        return self.title
+
+class Skill(models.Model):
     name = CharField(max_length=100)
     value = IntegerField(default = 0)
+
+    class Meta:
+        db_table = "Skills"
+        verbose_name = "Skill"
+        verbose_name_plural = "Skills"
+
+    def __str__(self) -> str:
+        return self.name
+
