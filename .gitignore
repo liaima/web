@@ -3,3 +3,4 @@ __pycache__/
 .env
 media/
 backend/venv/
+backend/porfolio/migrations/

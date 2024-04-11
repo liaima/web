@@ -1,0 +1,42 @@
+<div class="row my-4 text-center p-5 bg-black-tranparency">
+
+  <h3>Skills</h3>
+
+  <div id="skillsDiv" class="row row-cols-3 row-cols-lg-5 g-4">
+  {% for skill in skills %}
+  <div class="col">
+    <div class="card h-100 bg-liaima-gray card-skill">
+    
+          <div class="card-body">
+    
+            <h2>{{ skill.name }}</h2>
+    
+            <div class="progress" role="progressbar" aria-label="{{ skill.name }}" aria-valuenow="{{ skill.value }}" aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-bar bg-liaima-yellow" data-value="{{ skill.value }}" style="width: 0%"></div>
+            </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+</div>
+<script>
+
+  function loadProgress(){
+   	  console.log('Element has just become visible in screen');
+      const progressBars = document.getElementsByClassName('progress-bar')
+      for(let item of progressBars){
+        item.style.width = item.dataset.value + "%"
+      }
+  }
+
+  const observer = new IntersectionObserver(function(entries) {
+    if(entries[0].isIntersecting){
+      loadProgress()
+    }
+  }, { threshold: [1] });
+
+  observer.observe(document.querySelector("#skillsDiv"));
+
+</script>
+

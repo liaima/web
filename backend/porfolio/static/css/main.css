@@ -17,3 +17,12 @@ body {
 .card-project:hover {
   transform: scale(1.1);
 }
+
+.card-skill {
+  background: rgba(0, 0, 0, 0);
+  border: 0px;
+}
+
+.bg-liaima-yellow{
+  background-color: rgb(246, 151, 18);
+}
