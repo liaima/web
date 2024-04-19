@@ -35,7 +35,7 @@ class Work(models.Model):
     title = CharField(max_length=100)
     init_date = DateField()
     end_date = DateField(blank=True, null=True)
-    description = TextField(max_length=250)
+    description = TextField()
     url = URLField(blank=True)
     skills = models.ManyToManyField(Skill)
 
