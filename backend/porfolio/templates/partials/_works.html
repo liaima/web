@@ -1,0 +1,25 @@
+<div class="row my-4 text-center">
+
+  <h3>My Jobs</h3>
+
+
+  <div class="row">
+    <div class="col-3">
+      <div class="list-group" id="list-tab" role="tablist">
+  
+      {% for work in works %}
+      <a class="list-group-item list-group-item-action" id="list-{{work.id}}-list" data-bs-toggle="list" href="#list-{{work.id}}" role="tab" aria-controls="list-{{work.id}}">{{work.place}}</a>
+      {% endfor %}
+      </div>
+    </div>
+    <div class="col-9">
+      <div class="tab-content" id="nav-tabContent">
+
+      {% for work in works %}
+      <div class="tab-pane fade" id="list-{{work.id}}" role="tabpanel" aria-labelledby="list-{{work.id}}-list" style="height: 400px;overflow: scroll;">{{ work.description | safe }}</div>
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
