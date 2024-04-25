@@ -16,9 +16,19 @@
       <div class="tab-content" id="nav-tabContent">
 
       {% for work in works %}
-      <div class="tab-pane fade {% if forloop.counter == 1%} active show {%endif%}" id="list-{{work.id}}" role="tabpanel" aria-labelledby="list-{{work.id}}-list" style="height: 400px;overflow: scroll;">
+      <div class="tab-pane p-2 fade {% if forloop.counter == 1%} active show {%endif%}" id="list-{{work.id}}" role="tabpanel" aria-labelledby="list-{{work.id}}-list" style="height: 400px;overflow: scroll;">
         <h2>{{ work.title }}</h2>
-        <h4><i class="bi bi-calendar-range p-2"></i>   {{ work.init_date }} ~ {% if work.end_date %} {{ work.end_date }} {% else %} Now {% endif %}</h4>
+        <div class="d-flex justify-content-between">
+          <h4><i class="bi bi-calendar-range p-2"></i>   {{ work.init_date }} ~ {% if work.end_date %} {{ work.end_date }} {% else %} Now {% endif %}</h4>
+          <h4>
+            <i class="bi bi-building p-2"></i>
+            {% if work.url %}
+              <a class="title-link" href="{{ work.url }}" target="_blank">{{ work.place }}</a>
+            {% else %}
+              {{ work.place }}
+            {% endif %}
+          </h4>
+        </div>
         <hr>
         {{ work.description | safe }}
       
