@@ -2,6 +2,7 @@
 
 docker compose down 
 docker compose up -d 
+docker compose build backend
 docker compose exec backend sh -c "python manage.py makemigrations" 
 docker compose exec backend sh -c "python manage.py migrate --no-input" 
 docker compose exec backend sh -c "python manage.py collectstatic" 
