@@ -1,0 +1,48 @@
+{% load static %}
+<div class="row my-4">
+
+  <h3 class="text-center mb-5">My Jobs</h3>
+
+
+  <div class="row">
+    <div class="col-3">
+      <div class="list-group" id="list-tab" role="tablist">
+      {% for work in works %}
+      <a class="list-group-item list-group-item-action bg-transparent text-light dark {% if forloop.counter == 1%} active {%endif%}" id="list-{{work.id}}-list" data-bs-toggle="list" href="#list-{{work.id}}" role="tab" aria-controls="list-{{work.id}}">{{work.place}}</a>
+      {% endfor %}
+      </div>
+    </div>
+    <div class="col-9">
+      <div class="tab-content" id="nav-tabContent">
+
+      {% for work in works %}
+      <div class="tab-pane p-2 fade {% if forloop.counter == 1%} active show {%endif%}" id="list-{{work.id}}" role="tabpanel" aria-labelledby="list-{{work.id}}-list" style="height: 400px;overflow: scroll;">
+        <h2>{{ work.title }}</h2>
+        <div class="d-flex justify-content-between">
+          <h4><i class="bi bi-calendar-range p-2"></i>   {{ work.init_date }} ~ {% if work.end_date %} {{ work.end_date }} {% else %} Now {% endif %}</h4>
+          <h4>
+            <i class="bi bi-building p-2"></i>
+            {% if work.url %}
+              <a class="title-link" href="{{ work.url }}" target="_blank">{{ work.place }}</a>
+            {% else %}
+              {{ work.place }}
+            {% endif %}
+          </h4>
+        </div>
+        <hr>
+        {{ work.description | safe }}
+      
+        <hr>
+        <h5>Key Skills</h5>
+        {% for skill in work.skills.all %}
+          <span class="badge bg-liaima-yellow text-dark">
+            {{ skill.name }}
+          </span>
+        {% endfor %}
+      </div>
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
