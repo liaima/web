@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models.fields import CharField, URLField, IntegerField, TextField, DateField
+from django.db.models.fields import CharField, URLField, IntegerField, TextField, DateField, BooleanField
 from django.db.models.fields.files import ImageField
 
 class Skill(models.Model):
@@ -19,7 +19,9 @@ class Project(models.Model):
     description = TextField(max_length=250)
     image = ImageField(upload_to='portfolio/images/')
     url = URLField(blank=True)
+    repository = URLField(blank=True)
     position = IntegerField(default = 0)
+    published = BooleanField(default = True)
     skills = models.ManyToManyField(Skill)
 
     class Meta:
@@ -37,6 +39,7 @@ class Work(models.Model):
     end_date = DateField(blank=True, null=True)
     description = TextField()
     url = URLField(blank=True)
+    published = BooleanField(default = True)
     skills = models.ManyToManyField(Skill)
 
     class Meta:
