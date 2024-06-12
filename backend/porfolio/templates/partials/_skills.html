@@ -1,7 +1,8 @@
 {% load static %}
 
 <script src={% static "js/circular-progress-bar.js" %}></script>
-<div class="row my-4 text-center p-5 bg-black-tranparency">
+
+<div class="row my-4 text-center p-5">
 
   <h3>Skills</h3>
 
@@ -17,11 +18,12 @@
               title="{{ skill.name }}"
               stroke="15"
               color="rgb(246, 151, 18)"
-              bg_color="rgb(0, 0, 0, 0.1)"
-              stroke_color="rgb(0, 0, 0, 0)"
-              title_color="white"
+              bg_color="rgb(0, 0, 0, 0.4)"
+              stroke_color="#333333;"
+              title_color="#2B879E"
               show_percentage="false"
               show_values="false"
+              shadow_width="6"
               ></circular-progress-bar>
         </div>
       </div>
@@ -42,7 +44,7 @@
     if(entries[0].isIntersecting){
       loadProgress()
     }
-  }, { threshold: [0.25] });
+  }, { threshold: [0.35] });
 
   observer.observe(document.querySelector("#skillsDiv"));
 
