@@ -1,4 +1,8 @@
-<div class="row my-4 text-center p-5 bg-black-tranparency">
+{% load static %}
+
+<script src={% static "js/circular-progress-bar.js" %}></script>
+
+<div class="row my-4 text-center p-5">
 
   <h3>Skills</h3>
 
@@ -6,14 +10,21 @@
   {% for skill in skills %}
   <div class="col">
     <div class="card h-100 bg-liaima-gray card-skill">
-    
           <div class="card-body">
-    
-            <h2>{{ skill.name }}</h2>
-    
-            <div class="progress" role="progressbar" aria-label="{{ skill.name }}" aria-valuenow="{{ skill.value }}" aria-valuemin="0" aria-valuemax="100">
-              <div class="progress-bar bg-liaima-yellow" data-value="{{ skill.value }}" style="width: 0%"></div>
-            </div>
+            <circular-progress-bar
+              class="circular-progress-bar"
+              value="0" 
+              data-value="{{ skill.value }}"
+              title="{{ skill.name }}"
+              stroke="15"
+              color="rgb(246, 151, 18)"
+              bg_color="rgb(0, 0, 0, 0.4)"
+              stroke_color="#333333;"
+              title_color="#2B879E"
+              show_percentage="false"
+              show_values="false"
+              shadow_width="6"
+              ></circular-progress-bar>
         </div>
       </div>
     </div>
@@ -23,10 +34,9 @@
 <script>
 
   function loadProgress(){
-   	  console.log('Element has just become visible in screen');
-      const progressBars = document.getElementsByClassName('progress-bar')
+      const progressBars = document.getElementsByClassName('circular-progress-bar')
       for(let item of progressBars){
-        item.style.width = item.dataset.value + "%"
+        item.setValue(item.dataset.value)
       }
   }
 
@@ -34,7 +44,7 @@
     if(entries[0].isIntersecting){
       loadProgress()
     }
-  }, { threshold: [1] });
+  }, { threshold: [0.35] });
 
   observer.observe(document.querySelector("#skillsDiv"));
 
