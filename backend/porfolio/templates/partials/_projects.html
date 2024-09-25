@@ -12,6 +12,7 @@
     
             <h2>{{ project.title }}</h2>
             <p>{{ project.description }}</p>
+            <hr>
             <div class="mb-4">
             {% for skill in project.skills.all %}
               <span class="badge bg-liaima-yellow text-dark">
@@ -19,9 +20,13 @@
               </span>
             {% endfor %}
             </div>
-
             {% if project.url %}
                <a href="{{project.url}}" class="btn btn-light rounded-0" target="__blank">
+                 <i class="bi bi-link-45deg"></i> Project
+               </a>
+            {% endif %}
+            {% if project.repository %}
+               <a href="{{project.repository}}" class="btn btn-light rounded-0" target="__blank">
                  <i class="bi bi-git"></i> Repository
                </a>
             {% endif %}
