@@ -1,7 +1,7 @@
 ##Init proyect
 
 ```
-docker run -it --rm --name init-proyect -v "$PWD":/app -w /app python:3.10.6-alpine3.16 sh
+docker run -it --rm --name init-proyect -v "$PWD":/app -w /app python:3.13-alpine sh
 ```
 ```
 apk update \
